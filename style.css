@@ -1,0 +1,428 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0ea5e9;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* =========================
+   HEADER / NAVBAR
+========================= */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0ea5e9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.nav-links li a:hover {
+  color: #2563eb;
+}
+
+/* Hamburger Menu */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+#hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #0ea5e9;
+  transition: all 0.3s ease;
+}
+
+#hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    border-left: 1px solid #e5e7eb;
+    display: none;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  #hamburger {
+    display: flex;
+  }
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero-bright {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background-color: #0ea5e9;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bright::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #0ea5e9;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #0ea5e9;
+  color: #fff;
+  border-color: #0ea5e9;
+}
+
+/* =========================
+   INTRO / FLEX SECTIONS
+========================= */
+.intro-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.intro-text {
+  flex: 1 1 400px;
+}
+
+.intro-image {
+  flex: 1 1 400px;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   SERVICES GRID
+========================= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-img {
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #0ea5e9;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* =========================
+   TESTIMONIALS
+========================= */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.testimonial-card {
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-style: italic;
+  color: #334155;
+  position: relative;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: right;
+  color: #0ea5e9;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 2rem;
+  background-color: #0ea5e9;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2563eb;
+}
+
+.interactive-link {
+  color: #0ea5e9;
+  transition: color 0.3s ease;
+}
+
+.interactive-link:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   MAP
+========================= */
+.map-section iframe {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background-color: #0f172a;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer .socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+footer .socials a {
+  color: #0ea5e9;
+  transition: color 0.3s ease;
+}
+
+footer .socials a:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero-bright {
+    min-height: 50vh;
+  }
+
+  .intro-flex {
+    flex-direction: column;
+  }
+
+  .service-img {
+    max-height: 180px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   CTA / Get in Touch Fix
+========================= */
+.cta {
+  text-align: center;
+  margin: 4rem 0; /* space above and below */
+  padding: 2rem 1rem; /* extra padding so button doesn't overlap */
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.cta p {
+  margin-bottom: 2rem; /* ensures spacing between text and button */
+  color: #475569;
+}
+
+.cta .btn-primary {
+  margin-top: 1rem;
+}
