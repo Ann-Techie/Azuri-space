@@ -2,43 +2,40 @@
 
 // ===== Hamburger Menu Toggle =====
 const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
+const navLinks = document.querySelector(".nav-links");
 
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
   hamburger.classList.toggle("open");
 });
 
+// Close mobile menu when any nav link is clicked
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (navLinks.classList.contains("active")) {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("open");
+    }
+  });
+});
+
 // ===== Smooth Scrolling for Internal Links =====
-const navItems = document.querySelectorAll(".nav-item");
-
-navItems.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    const href = item.getAttribute("href");
-    if (href.startsWith("#")) {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href").slice(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
       e.preventDefault();
-      const targetId = href.slice(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 80, // offset for sticky header
-          behavior: "smooth",
-        });
-      }
-
-      // Close mobile menu after click
-      if (navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        hamburger.classList.remove("open");
-      }
+      window.scrollTo({
+        top: targetSection.offsetTop - 80, // offset for sticky header
+        behavior: "smooth",
+      });
     }
   });
 });
 
 // ===== Image Hover Effects =====
-const hoverImages = document.querySelectorAll(
-  ".service-img, .testimonial-img, .hero-content"
-);
+const hoverImages = document.querySelectorAll(".service-img, .testimonial-img");
 
 hoverImages.forEach((img) => {
   img.addEventListener("mouseenter", () => {
@@ -78,3 +75,4 @@ window.addEventListener("scroll", () => {
     backToTop.style.display = "none";
   }
 });
+// Hamburger toggle
