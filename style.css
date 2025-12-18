@@ -486,3 +486,46 @@ footer .socials a:hover {
     max-height: 300px;
   }
 }
+/* =========================
+   TESTIMONIALS
+========================= */
+.testimonials {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-style: italic;
+  color: #334155;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: right;
+  color: #0ea5e9;
+}
