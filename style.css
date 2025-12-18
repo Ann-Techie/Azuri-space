@@ -5,6 +5,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+/* =========================
+   FONT FAMILY
+========================= */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+textarea {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
