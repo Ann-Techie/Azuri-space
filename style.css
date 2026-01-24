@@ -59,8 +59,9 @@ a:hover {
 header {
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  position: sticky;
+  position: sticky; /* sticky on desktop */
   top: 0;
+  width: 100%;
   z-index: 9999;
 }
 
@@ -106,7 +107,7 @@ header {
   width: 30px;
   height: 22px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 10001; /* above everything */
 }
 
 #hamburger span {
@@ -133,6 +134,20 @@ header {
    MOBILE NAV MENU
 ========================= */
 @media (max-width: 768px) {
+  header {
+    position: fixed; /* fix header on mobile */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    height: 70px;
+  }
+
   #hamburger {
     display: flex;
   }
@@ -150,8 +165,8 @@ header {
     gap: 1.5rem;
     list-style: none;
     display: none; /* hidden by default */
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
-    z-index: 999;
+    z-index: 998; /* below hamburger */
+    overflow-y: auto; /* allow scrolling if menu is tall */
   }
 
   .nav-links.active {
