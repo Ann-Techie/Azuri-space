@@ -59,7 +59,7 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 99999; /* always on top */
+  z-index: 10000; /* always on top */
 }
 
 .nav-container {
@@ -133,6 +133,7 @@ header {
 @media (max-width: 768px) {
   #hamburger {
     display: flex;
+    z-index: 100002;
   }
 
   .nav-links {
@@ -149,7 +150,7 @@ header {
     list-style: none;
     display: flex; /* keep flex for animation */
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
-    z-index: 99998;
+    z-index: 10001;
     overflow-y: auto;
     transition: right 0.3s ease; /* slide animation */
   }
