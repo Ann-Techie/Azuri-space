@@ -1,24 +1,24 @@
-// ===== main.js =====
+// ===== app.js =====
 
 // ===== Hamburger Menu Toggle =====
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.querySelector(".nav-links");
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  hamburger.classList.toggle("open");
-});
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navLinks.classList.toggle("active");
+  });
 
-// Close mobile menu when any nav link is clicked
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    if (navLinks.classList.contains("active")) {
-      navLinks.classList.remove("active");
-      hamburger.classList.remove("open");
-    }
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("open");
+      }
+    });
   });
 });
-
 // ===== Smooth Scrolling for Internal Links =====
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
