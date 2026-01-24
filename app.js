@@ -5,16 +5,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.querySelector(".nav-links");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("open");
-    navLinks.classList.toggle("active");
-  });
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      navLinks.classList.toggle("active");
+    });
 
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (navLinks.classList.contains("active")) {
+    // Close menu when a link is clicked
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
         navLinks.classList.remove("active");
         hamburger.classList.remove("open");
+      });
+    });
+  }
+
+  // Smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href").slice(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        e.preventDefault();
+        window.scrollTo({
+          top: targetSection.offsetTop - 80, // offset for sticky header
+          behavior: "smooth",
+        });
       }
     });
   });

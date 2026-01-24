@@ -7,9 +7,6 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   FONT FAMILY
-========================= */
 body,
 h1,
 h2,
@@ -59,10 +56,10 @@ a:hover {
 header {
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  position: sticky; /* sticky on desktop */
+  position: sticky;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 99999; /* always on top */
 }
 
 .nav-container {
@@ -107,7 +104,7 @@ header {
   width: 30px;
   height: 22px;
   cursor: pointer;
-  z-index: 10001; /* above everything */
+  z-index: 100001; /* above everything */
 }
 
 #hamburger span {
@@ -134,20 +131,6 @@ header {
    MOBILE NAV MENU
 ========================= */
 @media (max-width: 768px) {
-  header {
-    position: fixed; /* fix header on mobile */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-  }
-
-  .nav-container {
-    justify-content: space-between;
-    padding: 0 1.5rem;
-    height: 70px;
-  }
-
   #hamburger {
     display: flex;
   }
@@ -155,7 +138,7 @@ header {
   .nav-links {
     position: fixed;
     top: 70px;
-    right: 0;
+    right: -100%; /* hidden initially off-screen */
     width: 100%;
     height: calc(100vh - 70px);
     background-color: #ffffff;
@@ -164,13 +147,15 @@ header {
     padding: 2rem;
     gap: 1.5rem;
     list-style: none;
-    display: none; /* hidden by default */
-    z-index: 998; /* below hamburger */
-    overflow-y: auto; /* allow scrolling if menu is tall */
+    display: flex; /* keep flex for animation */
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+    z-index: 99998;
+    overflow-y: auto;
+    transition: right 0.3s ease; /* slide animation */
   }
 
   .nav-links.active {
-    display: flex;
+    right: 0; /* slide-in when active */
   }
 }
 
